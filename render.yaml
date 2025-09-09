@@ -782,6 +782,7 @@ services:
     
     healthCheckPath: /health
     autoDeploy: true
+    branch: main
     scaling:
       minInstances: 1
       maxInstances: 3
@@ -808,6 +809,7 @@ services:
     
     healthCheckPath: /
     autoDeploy: true
+    branch: main
     scaling:
       minInstances: 1
       maxInstances: 2
@@ -854,6 +856,7 @@ services:
     
     healthCheckPath: /health
     autoDeploy: true
+    branch: main
 
   # Staging Next.js Frontend Service
   - type: web
@@ -875,6 +878,7 @@ services:
     
     healthCheckPath: /
     autoDeploy: true
+    branch: main
 
   # Celery Worker Service
   - type: worker
@@ -915,6 +919,7 @@ services:
       - fromGroup: production-secrets
     
     autoDeploy: true
+    branch: main
 
   # Celery Beat Service
   - type: worker
@@ -955,3 +960,4 @@ services:
       - fromGroup: production-secrets
     
     autoDeploy: true
+    branch: main
