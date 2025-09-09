@@ -715,12 +715,12 @@ databases:
     databaseName: ai_writer_db
     user: ai_writer_user
     region: oregon
-    plan: standard
+    plan: basic-4gb
   - name: ai-writer-db-staging
     databaseName: ai_writer_db_staging
     user: ai_writer_user_staging
     region: oregon
-    plan: starter
+    plan: basic-1gb
 
 services:
   # Redis Cache Service
@@ -782,7 +782,6 @@ services:
     
     healthCheckPath: /health
     autoDeploy: true
-    branch: main
     scaling:
       minInstances: 1
       maxInstances: 3
@@ -809,7 +808,6 @@ services:
     
     healthCheckPath: /
     autoDeploy: true
-    branch: main
     scaling:
       minInstances: 1
       maxInstances: 2
@@ -856,7 +854,6 @@ services:
     
     healthCheckPath: /health
     autoDeploy: true
-    branch: staging
 
   # Staging Next.js Frontend Service
   - type: web
@@ -878,7 +875,6 @@ services:
     
     healthCheckPath: /
     autoDeploy: true
-    branch: staging
 
   # Celery Worker Service
   - type: worker
@@ -919,7 +915,6 @@ services:
       - fromGroup: production-secrets
     
     autoDeploy: true
-    branch: main
 
   # Celery Beat Service
   - type: worker
@@ -960,4 +955,3 @@ services:
       - fromGroup: production-secrets
     
     autoDeploy: true
-    branch: main
