@@ -744,7 +744,7 @@ services:
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
-    ipAllowList: []
+    ipAllowList: ["0.0.0.0/0"]
     envVars:
       # Database Configuration
       - key: DATABASE_URL
@@ -792,7 +792,7 @@ services:
     region: oregon
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
-    ipAllowList: []
+    ipAllowList: ["0.0.0.0/0"]
     envVars:
       # Docker build args for Next.js
       - key: NEXT_PUBLIC_API_URL
@@ -820,7 +820,7 @@ services:
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
-    ipAllowList: []
+    ipAllowList: ["0.0.0.0/0"]
     envVars:
       # Database Configuration
       - key: DATABASE_URL
@@ -863,7 +863,7 @@ services:
     region: oregon
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
-    ipAllowList: []
+    ipAllowList: ["0.0.0.0/0"]
     envVars:
       # Docker build args for Next.js
       - key: NEXT_PUBLIC_API_URL
