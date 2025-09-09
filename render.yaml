@@ -776,9 +776,6 @@ services:
       - fromGroup: production-secrets
     
     healthCheckPath: /health
-    healthCheckTimeoutSeconds: 10
-    healthCheckIntervalSeconds: 30
-    healthCheckNumRetries: 3
     autoDeploy: true
     branch: main
     scaling:
@@ -807,9 +804,6 @@ services:
       - fromGroup: production-secrets
     
     healthCheckPath: /
-    healthCheckTimeoutSeconds: 10
-    healthCheckIntervalSeconds: 30
-    healthCheckNumRetries: 3
     autoDeploy: true
     branch: main
     scaling:
@@ -858,9 +852,6 @@ services:
       - fromGroup: staging-secrets
     
     healthCheckPath: /health
-    healthCheckTimeoutSeconds: 10
-    healthCheckIntervalSeconds: 30
-    healthCheckNumRetries: 3
     autoDeploy: true
     branch: staging
 
@@ -884,9 +875,6 @@ services:
       - fromGroup: staging-secrets
     
     healthCheckPath: /
-    healthCheckTimeoutSeconds: 10
-    healthCheckIntervalSeconds: 30
-    healthCheckNumRetries: 3
     autoDeploy: true
     branch: staging
 
