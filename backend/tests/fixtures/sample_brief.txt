@@ -1,0 +1,41 @@
+Sample Content Briefs for Testing
+
+=== Article Brief ===
+Title: "The Future of Artificial Intelligence in Healthcare"
+Brief: "Explore how AI is revolutionizing healthcare, from diagnostic tools to personalized treatment plans. Cover current applications, challenges, and future possibilities. Include real-world examples and expert insights."
+
+=== Blog Post Brief ===
+Title: "5 Tips for Remote Work Productivity"
+Brief: "Share practical advice for staying productive while working from home. Include tips on setting up workspace, managing time, staying connected with team, and maintaining work-life balance."
+
+=== Marketing Copy Brief ===
+Title: "Revolutionary Smart Home Security System"
+Brief: "Create compelling marketing copy for a new AI-powered home security system. Highlight key features like facial recognition, mobile alerts, and 24/7 monitoring. Focus on peace of mind and family safety."
+
+=== Product Description Brief ===
+Title: "Professional Wireless Headphones"
+Brief: "Write detailed product description for premium wireless headphones. Include technical specifications, comfort features, battery life, sound quality, and compatibility information."
+
+=== Email Brief ===
+Title: "Monthly Newsletter - Product Updates"
+Brief: "Create engaging email content for monthly newsletter. Include product updates, customer success stories, upcoming features, and company news. Maintain professional yet friendly tone."
+
+=== Social Media Brief ===
+Title: "Launch Announcement - New Mobile App"
+Brief: "Create social media posts announcing the launch of a new productivity mobile app. Include key features, download links, and engaging visuals. Target professional audience."
+
+=== Press Release Brief ===
+Title: "Company Announces Major Partnership"
+Brief: "Write press release announcing strategic partnership with leading technology company. Include partnership details, mutual benefits, and future plans. Target business and tech media."
+
+=== White Paper Brief ===
+Title: "Cybersecurity Best Practices for Small Businesses"
+Brief: "Create comprehensive white paper on cybersecurity for small businesses. Include threat analysis, prevention strategies, incident response, and compliance requirements."
+
+=== Case Study Brief ===
+Title: "How Company X Increased Sales by 200%"
+Brief: "Write detailed case study showing how a client achieved significant sales growth. Include background, challenges, solution implemented, results, and lessons learned."
+
+=== Newsletter Brief ===
+Title: "Weekly Industry Insights"
+Brief: "Create weekly newsletter with industry news, trends, expert opinions, and actionable insights. Include multiple sections with varied content types."

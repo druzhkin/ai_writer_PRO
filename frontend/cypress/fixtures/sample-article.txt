@@ -1,0 +1,7 @@
+Sample Article for Testing
+
+This is a sample article that can be used for testing the AI Writer PRO application. It contains various writing styles and techniques that can be analyzed by the style analysis system.
+
+The article demonstrates professional writing with clear structure, proper grammar, and engaging content. It includes multiple paragraphs with different topics and maintains a consistent tone throughout.
+
+This sample content is perfect for testing the reference article upload functionality and style analysis features of the application.

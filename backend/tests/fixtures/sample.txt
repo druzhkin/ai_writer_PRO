@@ -1,0 +1,11 @@
+This is a sample text file for testing text extraction functionality.
+
+It contains multiple paragraphs with different content to test the extraction process.
+
+The file includes:
+- Bullet points
+- Multiple sentences
+- Various punctuation marks
+- Different line breaks
+
+This should be sufficient to test basic text extraction capabilities.

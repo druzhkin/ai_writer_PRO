@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "name": "Test Organization",
+    "slug": "test-org",
+    "description": "A test organization for development",
+    "subscription_plan": "free",
+    "subscription_status": "active",
+    "owner_id": "1",
+    "created_at": "2023-01-01T00:00:00Z",
+    "updated_at": "2023-01-01T00:00:00Z"
+  },
+  {
+    "id": "2",
+    "name": "Premium Organization",
+    "slug": "premium-org",
+    "description": "A premium organization with advanced features",
+    "subscription_plan": "pro",
+    "subscription_status": "active",
+    "owner_id": "2",
+    "created_at": "2023-01-01T00:00:00Z",
+    "updated_at": "2023-01-01T00:00:00Z"
+  }
+]

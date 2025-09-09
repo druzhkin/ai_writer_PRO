@@ -1,0 +1,138 @@
+version: '3.8'
+
+services:
+  # Test PostgreSQL Database
+  postgres-test:
+    image: postgres:15-alpine
+    container_name: ai-writer-pro-postgres-test
+    environment:
+      POSTGRES_DB: test_db
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test_user -d test_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - test-network
+
+  # Test Redis Cache
+  redis-test:
+    image: redis:7-alpine
+    container_name: ai-writer-pro-redis-test
+    command: redis-server --appendonly yes
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - test-network
+
+  # Test RabbitMQ Message Queue
+  rabbitmq-test:
+    image: rabbitmq:3-management-alpine
+    container_name: ai-writer-pro-rabbitmq-test
+    environment:
+      RABBITMQ_DEFAULT_USER: test_user
+      RABBITMQ_DEFAULT_PASS: test_password
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - test-network
+
+  # Backend Test Server
+  backend-test:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ai-writer-pro-backend-test
+    environment:
+      - ENVIRONMENT=testing
+      - DEBUG=True
+      - DATABASE_URL=postgresql://test_user:test_password@postgres-test:5432/test_db
+      - REDIS_URL=redis://redis-test:6379
+      - RABBITMQ_URL=amqp://test_user:test_password@rabbitmq-test:5672/
+      - JWT_SECRET_KEY=test-secret-key-for-testing-only-32-chars
+      - SESSION_SECRET_KEY=test-session-secret-key-for-testing-only-32-chars
+      - OPENAI_API_KEY=test-openai-key
+      - SENTRY_DSN=
+    ports:
+      - "8001:8000"
+    depends_on:
+      postgres-test:
+        condition: service_healthy
+      redis-test:
+        condition: service_healthy
+      rabbitmq-test:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - test-network
+
+  # Frontend Test Server
+  frontend-test:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ai-writer-pro-frontend-test
+    environment:
+      - NODE_ENV=test
+      - NEXT_PUBLIC_API_URL=http://localhost:8001/api/v1
+      - NEXT_PUBLIC_APP_URL=http://localhost:3001
+      - NEXT_PUBLIC_SENTRY_DSN=
+    ports:
+      - "3001:3000"
+    depends_on:
+      backend-test:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - test-network
+
+  # Test Celery Worker
+  celery-worker-test:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ai-writer-pro-celery-worker-test
+    command: celery -A app.tasks worker --loglevel=info --concurrency=2
+    environment:
+      - ENVIRONMENT=testing
+      - DEBUG=True
+      - DATABASE_URL=postgresql://test_user:test_password@postgres-test:5432/test_db
+      - REDIS_URL=redis://redis-test:6379
+      - RABBITMQ_URL=amqp://test_user:test_password@rabbitmq-test:5672/
+      - OPENAI_API_KEY=test-openai-key
+    depends_on:
+      postgres-test:
+        condition: service_healthy
+      redis-test:
+        condition: service_healthy
+      rabbitmq-test:
+        condition: service_healthy
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge

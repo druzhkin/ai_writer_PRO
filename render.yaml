@@ -1,0 +1,981 @@
+# Environment Variable Groups
+envVarGroups:
+  # Shared configuration variables used across all environments
+  - name: shared-config
+    envVars:
+      # Application Configuration
+      - key: API_VERSION
+        value: v1
+      - key: API_PREFIX
+        value: /api/v1
+      - key: API_DOCS_URL
+        value: /docs
+      - key: API_REDOC_URL
+        value: /redoc
+      - key: API_OPENAPI_URL
+        value: /openapi.json
+      
+      # Application Settings
+      - key: NEXT_PUBLIC_API_VERSION
+        value: v1
+      - key: NEXT_PUBLIC_APP_NAME
+        value: AI Writer Pro
+      - key: SITE_NAME
+        value: AI Writer PRO
+      - key: SITE_DESCRIPTION
+        value: AI-powered article generation service
+      - key: SITE_KEYWORDS
+        value: AI,article generation,content creation,writing assistant
+      
+      # Feature Flags
+      - key: NEXT_PUBLIC_ENABLE_ANALYTICS
+        value: "true"
+      - key: NEXT_PUBLIC_ENABLE_DEBUG
+        value: "false"
+      - key: FEATURE_FLAGS_ENABLED
+        value: "true"
+      - key: HEALTH_CHECK_ENABLED
+        value: "true"
+      - key: RATE_LIMIT_ENABLED
+        value: "true"
+      - key: CACHE_ENABLED
+        value: "true"
+      - key: WEBSOCKET_ENABLED
+        value: "true"
+      - key: USAGE_TRACKING_ENABLED
+        value: "true"
+      - key: NOTIFICATIONS_ENABLED
+        value: "true"
+      - key: WEBHOOK_ENABLED
+        value: "true"
+      - key: EXPORT_ENABLED
+        value: "true"
+      - key: COLLABORATION_ENABLED
+        value: "true"
+      - key: AUTO_BACKUP_ENABLED
+        value: "true"
+      
+      # Performance and Monitoring
+      - key: PERFORMANCE_MONITORING_ENABLED
+        value: "true"
+      - key: ERROR_TRACKING_ENABLED
+        value: "true"
+      - key: LOG_FORMAT
+        value: json
+      - key: LOG_LEVEL
+        value: INFO
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      
+      # Build Environment Variables for Python Optimization
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PIP_NO_CACHE_DIR
+        value: "1"
+      - key: PIP_DISABLE_PIP_VERSION_CHECK
+        value: "1"
+      
+      # Build Environment Variables for Node.js Optimization
+      - key: NPM_CONFIG_CACHE
+        value: /tmp/.npm
+      - key: YARN_CACHE_FOLDER
+        value: /tmp/.yarn
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=512
+      
+      # Build-time Security and Optimization
+      - key: TZ
+        value: UTC
+      - key: LANG
+        value: en_US.UTF-8
+      - key: LC_ALL
+        value: en_US.UTF-8
+      
+      # Security Configuration
+      - key: SECURITY_HEADERS_ENABLED
+        value: "true"
+      - key: CSP_ENABLED
+        value: "true"
+      - key: HSTS_ENABLED
+        value: "true"
+      - key: XSS_PROTECTION_ENABLED
+        value: "true"
+      - key: CONTENT_TYPE_NOSNIFF
+        value: "true"
+      - key: FRAME_OPTIONS
+        value: DENY
+      
+      # Database Configuration
+      - key: DATABASE_POOL_SIZE
+        value: "10"
+      - key: DATABASE_MAX_OVERFLOW
+        value: "20"
+      - key: DATABASE_POOL_TIMEOUT
+        value: "30"
+      - key: DATABASE_POOL_RECYCLE
+        value: "3600"
+      
+      # Redis Configuration
+      - key: REDIS_DB
+        value: "0"
+      - key: REDIS_MAX_CONNECTIONS
+        value: "10"
+      
+      # JWT Configuration
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"
+      - key: JWT_REFRESH_TOKEN_EXPIRE_DAYS
+        value: "7"
+      - key: JWT_ISSUER
+        value: ai-writer-pro
+      - key: JWT_AUDIENCE
+        value: ai-writer-pro-users
+      
+      # Session Configuration
+      - key: SESSION_MAX_AGE
+        value: "3600"
+      - key: SESSION_HTTP_ONLY
+        value: "True"
+      - key: SESSION_SAME_SITE
+        value: lax
+      
+      # OAuth Configuration
+      - key: OAUTH_STATE_LENGTH
+        value: "32"
+      
+      # OpenAI Configuration
+      - key: OPENAI_MODEL
+        value: gpt-4-turbo-preview
+      - key: OPENAI_MAX_TOKENS
+        value: "4000"
+      - key: OPENAI_TEMPERATURE
+        value: "0.7"
+      - key: OPENAI_TIMEOUT
+        value: "60"
+      - key: OPENAI_MAX_RETRIES
+        value: "3"
+      
+      # AWS S3 Configuration
+      - key: AWS_REGION
+        value: us-east-1
+      - key: S3_STYLES_PREFIX
+        value: styles
+      - key: S3_CONTENT_PREFIX
+        value: content
+      - key: S3_UPLOADS_PREFIX
+        value: uploads
+      - key: S3_MAX_FILE_SIZE
+        value: "52428800"
+      - key: S3_PRESIGNED_URL_EXPIRY
+        value: "3600"
+      
+      # Email Configuration
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USE_TLS
+        value: "True"
+      - key: SMTP_USE_SSL
+        value: "False"
+      - key: EMAIL_FROM
+        value: noreply@aiwriter.com
+      - key: EMAIL_FROM_NAME
+        value: AI Writer PRO
+      - key: EMAIL_REPLY_TO
+        value: support@aiwriter.com
+      - key: EMAIL_TEMPLATE_DIR
+        value: templates/email
+      
+      # CORS Configuration
+      - key: CORS_ALLOW_CREDENTIALS
+        value: "True"
+      - key: CORS_ALLOW_METHODS
+        value: GET,POST,PUT,DELETE,OPTIONS
+      - key: CORS_ALLOW_HEADERS
+        value: "*"
+      
+      # Rate Limiting Configuration
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "60"
+      - key: RATE_LIMIT_BURST
+        value: "100"
+      - key: RATE_LIMIT_STORAGE
+        value: redis
+      
+      # File Upload Configuration
+      - key: MAX_FILE_SIZE
+        value: "52428800"
+      - key: ALLOWED_FILE_TYPES
+        value: image/jpeg,image/png,image/gif,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document
+      - key: UPLOAD_DIR
+        value: uploads
+      - key: TEMP_DIR
+        value: temp
+      
+      # Content Generation Configuration
+      - key: MAX_CONTENT_LENGTH
+        value: "50000"
+      - key: MIN_CONTENT_LENGTH
+        value: "100"
+      - key: MAX_TARGET_WORDS
+        value: "5000"
+      - key: MIN_TARGET_WORDS
+        value: "100"
+      - key: CONTENT_GENERATION_TIMEOUT
+        value: "300"
+      - key: MAX_CONTENT_ITERATIONS
+        value: "50"
+      
+      # Style Analysis Configuration
+      - key: MAX_REFERENCE_ARTICLES_PER_STYLE
+        value: "50"
+      - key: STYLE_ANALYSIS_TIMEOUT
+        value: "300"
+      - key: STYLE_ANALYSIS_MAX_RETRIES
+        value: "3"
+      
+      # Usage Tracking Configuration
+      - key: USAGE_ANALYTICS_RETENTION_DAYS
+        value: "365"
+      - key: USAGE_CLEANUP_INTERVAL
+        value: "24"
+      
+      # Subscription Plans Configuration
+      - key: FREE_PLAN_DAILY_TOKENS
+        value: "10000"
+      - key: BASIC_PLAN_DAILY_TOKENS
+        value: "100000"
+      - key: PRO_PLAN_DAILY_TOKENS
+        value: "1000000"
+      - key: ENTERPRISE_PLAN_DAILY_TOKENS
+        value: "10000000"
+      
+      # Token Costs Configuration (USD per 1K tokens)
+      - key: OPENAI_GPT4_INPUT_COST_PER_1K
+        value: "0.01"
+      - key: OPENAI_GPT4_OUTPUT_COST_PER_1K
+        value: "0.03"
+      - key: OPENAI_GPT4_TURBO_INPUT_COST_PER_1K
+        value: "0.005"
+      - key: OPENAI_GPT4_TURBO_OUTPUT_COST_PER_1K
+        value: "0.015"
+      
+      # Cache Configuration
+      - key: CACHE_TTL
+        value: "3600"
+      - key: CACHE_MAX_SIZE
+        value: "1000"
+      - key: CACHE_STORAGE
+        value: redis
+      
+      # WebSocket Configuration
+      - key: WEBSOCKET_MAX_CONNECTIONS
+        value: "1000"
+      
+      # Background Tasks Configuration
+      - key: CELERY_TASK_SERIALIZER
+        value: json
+      - key: CELERY_RESULT_SERIALIZER
+        value: json
+      - key: CELERY_ACCEPT_CONTENT
+        value: json
+      - key: CELERY_TIMEZONE
+        value: UTC
+      - key: CELERY_ENABLE_UTC
+        value: "True"
+      
+      # Logging Configuration
+      - key: LOG_FILE_ENABLED
+        value: "False"
+      - key: LOG_FILE_PATH
+        value: logs/app.log
+      - key: LOG_ROTATION_ENABLED
+        value: "True"
+      - key: LOG_MAX_SIZE
+        value: "10485760"
+      - key: LOG_BACKUP_COUNT
+        value: "5"
+      
+      # Performance Configuration
+      - key: PERFORMANCE_SAMPLE_RATE
+        value: "0.1"
+      - key: PERFORMANCE_TRACE_SAMPLING
+        value: "True"
+      - key: PERFORMANCE_PROFILING_ENABLED
+        value: "False"
+      
+      # Error Tracking Configuration
+      - key: ERROR_SAMPLE_RATE
+        value: "1.0"
+      - key: ERROR_IGNORE_PATTERNS
+        value: 404,403
+      - key: ERROR_MAX_BREADCRUMBS
+        value: "50"
+      
+      # Database Migration Configuration
+      - key: ALEMBIC_CONFIG
+        value: alembic.ini
+      - key: MIGRATION_DIR
+        value: alembic/versions
+      - key: MIGRATION_AUTO_GENERATE
+        value: "True"
+      
+      # Backup Configuration
+      - key: BACKUP_INTERVAL
+        value: "24"
+      - key: BACKUP_RETENTION_DAYS
+        value: "30"
+      - key: BACKUP_STORAGE
+        value: s3
+      - key: BACKUP_ENCRYPTION
+        value: "True"
+      
+      # Notification Configuration
+      - key: NOTIFICATION_CHANNELS
+        value: email,webhook
+      - key: NOTIFICATION_QUEUE_SIZE
+        value: "1000"
+      - key: NOTIFICATION_RETRY_ATTEMPTS
+        value: "3"
+      
+      # Webhook Configuration
+      - key: WEBHOOK_TIMEOUT
+        value: "30"
+      - key: WEBHOOK_MAX_RETRIES
+        value: "3"
+      
+      # Feature Flags Configuration
+      - key: FEATURE_FLAGS_STORAGE
+        value: redis
+      - key: FEATURE_FLAGS_TTL
+        value: "3600"
+      
+      # Localization Configuration
+      - key: DEFAULT_LOCALE
+        value: en
+      - key: SUPPORTED_LOCALES
+        value: en,es,fr,de
+      - key: LOCALE_STORAGE
+        value: redis
+      - key: LOCALE_FALLBACK
+        value: "True"
+      
+      # Theme Configuration
+      - key: DEFAULT_THEME
+        value: light
+      - key: THEME_OPTIONS
+        value: light,dark,system
+      - key: THEME_STORAGE
+        value: localStorage
+      
+      # Accessibility Configuration
+      - key: ACCESSIBILITY_ENABLED
+        value: "True"
+      - key: HIGH_CONTRAST_MODE
+        value: "False"
+      - key: SCREEN_READER_SUPPORT
+        value: "True"
+      
+      # Social Media Configuration
+      - key: TWITTER_HANDLE
+        value: aiwriterpro
+      - key: LINKEDIN_URL
+        value: https://linkedin.com/company/aiwriterpro
+      - key: FACEBOOK_URL
+        value: https://facebook.com/aiwriterpro
+      
+      # Support Configuration
+      - key: SUPPORT_EMAIL
+        value: support@aiwriterpro.com
+      - key: SUPPORT_PHONE
+        value: +1-555-0123
+      - key: SUPPORT_HOURS
+        value: 9AM-5PM EST
+      - key: DOCS_URL
+        value: https://docs.aiwriterpro.com
+      
+      # Legal Configuration
+      - key: PRIVACY_POLICY_URL
+        value: https://aiwriterpro.com/privacy
+      - key: TERMS_OF_SERVICE_URL
+        value: https://aiwriterpro.com/terms
+      - key: COOKIE_POLICY_URL
+        value: https://aiwriterpro.com/cookies
+      - key: GDPR_ENABLED
+        value: "True"
+      
+      # Export Configuration
+      - key: EXPORT_FORMATS
+        value: pdf,docx,txt,html
+      - key: EXPORT_MAX_SIZE
+        value: "10485760"
+      - key: EXPORT_TIMEOUT
+        value: "300"
+      
+      # Collaboration Configuration
+      - key: MAX_COLLABORATORS
+        value: "10"
+      - key: REAL_TIME_COLLABORATION
+        value: "True"
+      - key: VERSION_CONTROL_ENABLED
+        value: "True"
+      
+      # Version Control Configuration
+      - key: MAX_VERSIONS
+        value: "50"
+      - key: VERSION_CLEANUP_ENABLED
+        value: "True"
+      - key: VERSION_CLEANUP_INTERVAL
+        value: "168"
+      
+      # Auto Backup Configuration
+      - key: AUTO_BACKUP_INTERVAL
+        value: "24"
+      - key: AUTO_BACKUP_RETENTION
+        value: "30"
+      - key: AUTO_BACKUP_COMPRESSION
+        value: "True"
+      
+      # Development Tools Configuration
+      - key: DEV_TOOLS_ENABLED
+        value: "False"
+      - key: MOCK_API_ENABLED
+        value: "False"
+      - key: DEBUG_MODE
+        value: "False"
+      - key: PROFILING_ENABLED
+        value: "False"
+      
+      # Testing Configuration
+      - key: TEST_DATABASE_URL
+        value: sqlite+aiosqlite:///:memory:
+      - key: TEST_REDIS_URL
+        value: redis://localhost:6379/1
+      - key: TEST_ENVIRONMENT
+        value: "True"
+      - key: TEST_DEBUG
+        value: "True"
+
+  # Production secrets and sensitive configuration
+  - name: production-secrets
+    envVars:
+      # Environment Configuration
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "False"
+      - key: NODE_ENV
+        value: production
+      
+      # JWT and Session Secrets
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: SESSION_SECRET_KEY
+        generateValue: true
+      
+      # OAuth Configuration
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      - key: NEXT_PUBLIC_GOOGLE_CLIENT_ID
+        sync: false
+      - key: NEXT_PUBLIC_GITHUB_CLIENT_ID
+        sync: false
+      
+      # OpenAI Configuration
+      - key: OPENAI_API_KEY
+        sync: false
+      
+      # AWS S3 Configuration
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_S3_BUCKET
+        sync: false
+      
+      # Email Configuration
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      
+      # Monitoring Configuration
+      - key: SENTRY_DSN
+        sync: false
+      - key: SENTRY_ENVIRONMENT
+        value: production
+      - key: SENTRY_TRACES_SAMPLE_RATE
+        value: "0.1"
+      - key: SENTRY_PROFILES_SAMPLE_RATE
+        value: "0.1"
+      - key: GOOGLE_ANALYTICS_ID
+        sync: false
+      
+      # Webhook Configuration
+      - key: WEBHOOK_SECRET
+        sync: false
+      
+      # Production URLs - Base URLs for reference
+      - key: BACKEND_BASE_URL
+        sync: false
+      - key: FRONTEND_BASE_URL
+        sync: false
+      - key: SITE_URL
+        value: https://aiwriterpro.com
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false
+      - key: NEXT_PUBLIC_API_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: FRONTEND_CORS_ORIGINS
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: OAUTH_REDIRECT_URI
+        sync: false
+      - key: WEBSOCKET_URL
+        sync: false
+
+  # Staging environment secrets
+  - name: staging-secrets
+    envVars:
+      # Environment Configuration
+      - key: ENVIRONMENT
+        value: staging
+      - key: DEBUG
+        value: "True"
+      - key: NODE_ENV
+        value: development
+      
+      # JWT and Session Secrets
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: SESSION_SECRET_KEY
+        generateValue: true
+      
+      # OAuth Configuration (Staging)
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      - key: NEXT_PUBLIC_GOOGLE_CLIENT_ID
+        sync: false
+      - key: NEXT_PUBLIC_GITHUB_CLIENT_ID
+        sync: false
+      
+      # OpenAI Configuration (Staging)
+      - key: OPENAI_API_KEY
+        sync: false
+      
+      # AWS S3 Configuration (Staging)
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_S3_BUCKET
+        sync: false
+      
+      # Email Configuration (Staging)
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      
+      # Monitoring Configuration (Staging)
+      - key: SENTRY_DSN
+        sync: false
+      - key: SENTRY_ENVIRONMENT
+        value: staging
+      - key: SENTRY_TRACES_SAMPLE_RATE
+        value: "0.5"
+      - key: SENTRY_PROFILES_SAMPLE_RATE
+        value: "0.5"
+      - key: GOOGLE_ANALYTICS_ID
+        sync: false
+      
+      # Webhook Configuration (Staging)
+      - key: WEBHOOK_SECRET
+        sync: false
+      
+      # Staging URLs - Base URLs for reference
+      - key: BACKEND_BASE_URL
+        sync: false
+      - key: FRONTEND_BASE_URL
+        sync: false
+      - key: SITE_URL
+        value: https://staging.aiwriterpro.com
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false
+      - key: NEXT_PUBLIC_API_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: FRONTEND_CORS_ORIGINS
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: OAUTH_REDIRECT_URI
+        sync: false
+      - key: WEBSOCKET_URL
+        sync: false
+      
+      # Staging Database URLs - renamed to standard names
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+
+  # Development environment configuration
+  - name: development-config
+    envVars:
+      # Environment Configuration
+      - key: ENVIRONMENT
+        value: development
+      - key: DEBUG
+        value: "True"
+      - key: NODE_ENV
+        value: development
+      
+      # JWT and Session Secrets for Development
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: SESSION_SECRET_KEY
+        generateValue: true
+      
+      # Development URLs
+      - key: SITE_URL
+        value: http://localhost:3000
+      - key: NEXT_PUBLIC_APP_URL
+        value: http://localhost:3000
+      - key: NEXT_PUBLIC_API_URL
+        value: http://localhost:8000
+      - key: FRONTEND_URL
+        value: http://localhost:3000
+      - key: FRONTEND_CORS_ORIGINS
+        value: http://localhost:3000,http://127.0.0.1:3000
+      - key: CORS_ORIGINS
+        value: http://localhost:3000,http://127.0.0.1:3000
+      - key: OAUTH_REDIRECT_URI
+        value: http://localhost:8000/api/v1/oauth/callback
+      - key: WEBSOCKET_URL
+        value: ws://localhost:8000/ws
+      
+      # Development Database URLs
+      - key: DATABASE_URL
+        value: postgresql://ai_writer_user:ai_writer_password@localhost:5432/ai_writer_db
+      - key: REDIS_URL
+        value: redis://localhost:6379
+      
+      # Development Monitoring
+      - key: SENTRY_ENVIRONMENT
+        value: development
+      - key: SENTRY_TRACES_SAMPLE_RATE
+        value: "1.0"
+      - key: SENTRY_PROFILES_SAMPLE_RATE
+        value: "1.0"
+      
+      # Development Tools
+      - key: ENABLE_SWAGGER_UI
+        value: "True"
+      - key: ENABLE_REDOC
+        value: "True"
+      - key: ENABLE_DEBUG_TOOLBAR
+        value: "True"
+      - key: ENABLE_PROFILING
+        value: "True"
+      - key: DEV_TOOLS_ENABLED
+        value: "True"
+      - key: MOCK_API_ENABLED
+        value: "True"
+      - key: DEBUG_MODE
+        value: "True"
+      - key: PROFILING_ENABLED
+        value: "True"
+
+databases:
+  - name: ai-writer-db
+    type: postgresql
+    databaseName: ai_writer_db
+    user: ai_writer_user
+    password:
+      generateValue: true
+    region: oregon
+    plan: standard
+  - name: ai-writer-db-staging
+    type: postgresql
+    databaseName: ai_writer_db_staging
+    user: ai_writer_user_staging
+    password:
+      generateValue: true
+    region: oregon
+    plan: starter
+
+services:
+  # Redis Cache Service
+  - type: redis
+    name: ai-writer-redis
+    plan: starter
+    region: oregon
+    maxmemoryPolicy: allkeys-lru
+  # Redis Cache Service for Staging
+  - type: redis
+    name: ai-writer-redis-staging
+    plan: starter
+    region: oregon
+    maxmemoryPolicy: allkeys-lru
+
+  # FastAPI Backend Service
+  - type: web
+    name: ai-writer-backend
+    env: docker
+    plan: standard
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 2
+    envVars:
+      # Database Configuration
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ai-writer-db
+          property: connectionString
+      
+      # Redis Configuration
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      
+      # Background Tasks Configuration
+      - key: CELERY_BROKER_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      - key: CELERY_RESULT_BACKEND
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      
+      # Reference environment variable groups
+      - fromGroup: shared-config
+      - fromGroup: production-secrets
+    
+    healthCheckPath: /health
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
+    autoDeploy: true
+    branch: main
+    scaling:
+      minInstances: 1
+      maxInstances: 3
+      targetCPUPercent: 70
+      targetMemoryPercent: 80
+
+  # Next.js Frontend Service
+  - type: web
+    name: ai-writer-frontend
+    env: docker
+    plan: standard
+    region: oregon
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    docker:
+      build:
+        args:
+          NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+          NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL}
+    startCommand: node server.js
+    envVars:
+      # Reference environment variable groups
+      - fromGroup: shared-config
+      - fromGroup: production-secrets
+    
+    healthCheckPath: /
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
+    autoDeploy: true
+    branch: main
+    scaling:
+      minInstances: 1
+      maxInstances: 2
+      targetCPUPercent: 70
+      targetMemoryPercent: 80
+
+  # Staging FastAPI Backend Service
+  - type: web
+    name: ai-writer-backend-staging
+    env: docker
+    plan: starter
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    envVars:
+      # Database Configuration
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ai-writer-db-staging
+          property: connectionString
+      
+      # Redis Configuration
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis-staging
+          property: connectionString
+      
+      # Background Tasks Configuration
+      - key: CELERY_BROKER_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis-staging
+          property: connectionString
+      - key: CELERY_RESULT_BACKEND
+        fromService:
+          type: redis
+          name: ai-writer-redis-staging
+          property: connectionString
+      
+      # Reference environment variable groups
+      - fromGroup: shared-config
+      - fromGroup: staging-secrets
+    
+    healthCheckPath: /health
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
+    autoDeploy: true
+    branch: staging
+
+  # Staging Next.js Frontend Service
+  - type: web
+    name: ai-writer-frontend-staging
+    env: docker
+    plan: starter
+    region: oregon
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    docker:
+      build:
+        args:
+          NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+          NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL}
+    startCommand: npm run start
+    envVars:
+      # Reference environment variable groups
+      - fromGroup: shared-config
+      - fromGroup: staging-secrets
+    
+    healthCheckPath: /
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
+    autoDeploy: true
+    branch: staging
+
+  # Celery Worker Service
+  - type: worker
+    name: ai-writer-celery-worker
+    env: docker
+    plan: standard
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    startCommand: celery -A app.tasks worker --loglevel=info --concurrency=4
+    envVars:
+      # Database Configuration
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ai-writer-db
+          property: connectionString
+      
+      # Redis Configuration
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      
+      # Background Tasks Configuration
+      - key: CELERY_BROKER_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      - key: CELERY_RESULT_BACKEND
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      
+      # Reference environment variable groups
+      - fromGroup: shared-config
+      - fromGroup: production-secrets
+    
+    autoDeploy: true
+    branch: main
+
+  # Celery Beat Service
+  - type: worker
+    name: ai-writer-celery-beat
+    env: docker
+    plan: standard
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    startCommand: celery -A app.tasks beat --loglevel=info
+    envVars:
+      # Database Configuration
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ai-writer-db
+          property: connectionString
+      
+      # Redis Configuration
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      
+      # Background Tasks Configuration
+      - key: CELERY_BROKER_URL
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      - key: CELERY_RESULT_BACKEND
+        fromService:
+          type: redis
+          name: ai-writer-redis
+          property: connectionString
+      
+      # Reference environment variable groups
+      - fromGroup: shared-config
+      - fromGroup: production-secrets
+    
+    autoDeploy: true
+    branch: main
