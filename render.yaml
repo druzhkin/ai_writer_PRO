@@ -730,7 +730,7 @@ services:
   # Redis Cache Service
   - type: redis
     name: ai-writer-redis
-    plan: basic-1gb
+    plan: starter
     region: oregon
     maxmemoryPolicy: allkeys-lru
     ipAllowList:
@@ -739,7 +739,7 @@ services:
   # Redis Cache Service for Staging
   - type: redis
     name: ai-writer-redis-staging
-    plan: basic-1gb
+    plan: starter
     region: oregon
     maxmemoryPolicy: allkeys-lru
     ipAllowList:
@@ -750,7 +750,7 @@ services:
   - type: web
     name: ai-writer-backend
     env: docker
-    plan: basic-4gb
+    plan: starter
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
@@ -797,7 +797,7 @@ services:
   - type: web
     name: ai-writer-frontend
     env: docker
-    plan: basic-4gb
+    plan: starter
     region: oregon
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
@@ -824,7 +824,7 @@ services:
   - type: web
     name: ai-writer-backend-staging
     env: docker
-    plan: basic-1gb
+    plan: starter
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
@@ -866,7 +866,7 @@ services:
   - type: web
     name: ai-writer-frontend-staging
     env: docker
-    plan: basic-1gb
+    plan: starter
     region: oregon
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
@@ -888,7 +888,7 @@ services:
   - type: worker
     name: ai-writer-celery-worker
     env: docker
-    plan: basic-4gb
+    plan: starter
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
@@ -929,7 +929,7 @@ services:
   - type: worker
     name: ai-writer-celery-beat
     env: docker
-    plan: basic-4gb
+    plan: starter
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
