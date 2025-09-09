@@ -775,11 +775,10 @@ services:
       - fromGroup: shared-config
       - fromGroup: production-secrets
     
-    healthCheck:
-      path: /health
-      timeout: 10
-      interval: 30
-      retries: 3
+    healthCheckPath: /health
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
     autoDeploy: true
     branch: main
     scaling:
@@ -807,11 +806,10 @@ services:
       - fromGroup: shared-config
       - fromGroup: production-secrets
     
-    healthCheck:
-      path: /
-      timeout: 10
-      interval: 30
-      retries: 3
+    healthCheckPath: /
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
     autoDeploy: true
     branch: main
     scaling:
@@ -859,11 +857,10 @@ services:
       - fromGroup: shared-config
       - fromGroup: staging-secrets
     
-    healthCheck:
-      path: /health
-      timeout: 10
-      interval: 30
-      retries: 3
+    healthCheckPath: /health
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
     autoDeploy: true
     branch: staging
 
@@ -886,11 +883,10 @@ services:
       - fromGroup: shared-config
       - fromGroup: staging-secrets
     
-    healthCheck:
-      path: /
-      timeout: 10
-      interval: 30
-      retries: 3
+    healthCheckPath: /
+    healthCheckTimeoutSeconds: 10
+    healthCheckIntervalSeconds: 30
+    healthCheckNumRetries: 3
     autoDeploy: true
     branch: staging
 
