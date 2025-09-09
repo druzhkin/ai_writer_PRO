@@ -712,15 +712,19 @@ envVarGroups:
 
 databases:
   - name: ai-writer-db
+    postgresMajorVersion: 15
     databaseName: ai_writer_db
     user: ai_writer_user
     region: oregon
     plan: basic-4gb
+    ipAllowList: []
   - name: ai-writer-db-staging
+    postgresMajorVersion: 15
     databaseName: ai_writer_db_staging
     user: ai_writer_user_staging
     region: oregon
     plan: basic-1gb
+    ipAllowList: []
 
 services:
   # Redis Cache Service
