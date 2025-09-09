@@ -2,6 +2,32 @@
 
 AI-powered article generation service with comprehensive style analysis, content management, and production-ready infrastructure.
 
+## 🚀 Быстрый деплой на Render
+
+### 1. Создание Blueprint
+1. Откройте [Render Dashboard](https://dashboard.render.com)
+2. Нажмите **"New +"** → **"Blueprint"**
+3. Подключите репозиторий: `druzhkin/ai_writer_PRO`
+4. Выберите файл: `render.yaml`
+5. Нажмите **"Apply"**
+
+### 2. Настройка переменных окружения
+Скопируйте переменные из [RENDER_ENV_VARS.md](RENDER_ENV_VARS.md) в Render Dashboard.
+
+### 3. Готово!
+Ваше приложение будет автоматически развернуто на Render.
+
+## 📚 Документация
+
+- **[QUICK_START.md](QUICK_START.md)** - Быстрый старт (5 минут)
+- **[RENDER_DEPLOYMENT_GUIDE.md](RENDER_DEPLOYMENT_GUIDE.md)** - Полное руководство по деплою
+- **[RENDER_ENV_VARS.md](RENDER_ENV_VARS.md)** - Переменные окружения
+
+## 💰 Стоимость на Render
+
+- **Production**: ~$42/месяц
+- **Staging**: ~$28/месяц
+
 ## 🚀 Features
 
 - **AI Content Generation**: Generate high-quality articles using OpenAI GPT models
