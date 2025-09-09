@@ -856,7 +856,7 @@ services:
     
     healthCheckPath: /health
     autoDeploy: true
-    branch: main
+    branch: staging
 
   # Staging Next.js Frontend Service
   - type: web
@@ -878,7 +878,7 @@ services:
     
     healthCheckPath: /
     autoDeploy: true
-    branch: main
+    branch: staging
 
   # Celery Worker Service
   - type: worker
