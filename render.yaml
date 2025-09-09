@@ -729,12 +729,18 @@ services:
     plan: starter
     region: oregon
     maxmemoryPolicy: allkeys-lru
+    ipAllowList:
+      - source: "0.0.0.0/0"
+        description: "Allow all IPs"
   # Redis Cache Service for Staging
   - type: redis
     name: ai-writer-redis-staging
     plan: starter
     region: oregon
     maxmemoryPolicy: allkeys-lru
+    ipAllowList:
+      - source: "0.0.0.0/0"
+        description: "Allow all IPs"
 
   # FastAPI Backend Service
   - type: web
@@ -744,9 +750,6 @@ services:
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
-    ipAllowList:
-      - source: "0.0.0.0/0"
-        description: "Allow all IPs"
     envVars:
       # Database Configuration
       - key: DATABASE_URL
@@ -794,9 +797,6 @@ services:
     region: oregon
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
-    ipAllowList:
-      - source: "0.0.0.0/0"
-        description: "Allow all IPs"
     envVars:
       # Docker build args for Next.js
       - key: NEXT_PUBLIC_API_URL
@@ -824,9 +824,6 @@ services:
     region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
-    ipAllowList:
-      - source: "0.0.0.0/0"
-        description: "Allow all IPs"
     envVars:
       # Database Configuration
       - key: DATABASE_URL
@@ -869,9 +866,6 @@ services:
     region: oregon
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
-    ipAllowList:
-      - source: "0.0.0.0/0"
-        description: "Allow all IPs"
     envVars:
       # Docker build args for Next.js
       - key: NEXT_PUBLIC_API_URL
