@@ -712,19 +712,13 @@ envVarGroups:
 
 databases:
   - name: ai-writer-db
-    type: postgresql
     databaseName: ai_writer_db
     user: ai_writer_user
-    password:
-      generateValue: true
     region: oregon
     plan: standard
   - name: ai-writer-db-staging
-    type: postgresql
     databaseName: ai_writer_db_staging
     user: ai_writer_user_staging
-    password:
-      generateValue: true
     region: oregon
     plan: starter
 
